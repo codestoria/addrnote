@@ -17,6 +17,7 @@ export function createSiteConfig(
       description: LOCALE_META.en.site.description,
       mermaid: { theme: 'default', securityLevel: 'strict' },
       mermaidPlugin: { class: 'mermaid-diagram' },
+      vite: { optimizeDeps: { include: ['fastdom', 'fastdom/extensions/fastdom-promised.js'] } },
       head: [
         [
           'link',
