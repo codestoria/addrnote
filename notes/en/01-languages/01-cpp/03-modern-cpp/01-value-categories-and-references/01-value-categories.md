@@ -100,10 +100,6 @@ Two umbrella terms wrap these:
 - **glvalue** = lvalue ∪ xvalue. _g_ stands for "generalized".
 - **rvalue** = prvalue ∪ xvalue.
 
-Notation:
-
-$$ \mathrm{glvalue} = \{\mathrm{lvalue}, \mathrm{xvalue}\}, \quad \mathrm{rvalue} = \{\mathrm{prvalue}, \mathrm{xvalue}\}. $$
-
 The intersection is `{xvalue}`; the union is all expressions.
 
 ### Where the historical names came from (and why they lie)
