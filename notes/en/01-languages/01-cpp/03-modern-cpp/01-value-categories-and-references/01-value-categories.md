@@ -102,9 +102,7 @@ Two umbrella terms wrap these:
 
 Notation:
 
-$$
-\mathrm{glvalue} = \{\mathrm{lvalue}, \mathrm{xvalue}\}, \quad \mathrm{rvalue} = \{\mathrm{prvalue}, \mathrm{xvalue}\}.
-$$
+$$ \mathrm{glvalue} = \{\mathrm{lvalue}, \mathrm{xvalue}\}, \quad \mathrm{rvalue} = \{\mathrm{prvalue}, \mathrm{xvalue}\}. $$
 
 The intersection is `{xvalue}`; the union is all expressions.
 
