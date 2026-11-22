@@ -1,0 +1,40 @@
+{
+  "name": "addrnote",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "gen-sidebar": "tsx scripts/gen-sidebar.ts",
+    "watch-sidebar": "bash scripts/watch-sidebar.sh",
+    "test": "tsx --test scripts/tests/*.test.ts",
+    "predev": "npm run gen-sidebar",
+    "dev": "bash scripts/dev.sh",
+    "prebuild": "npm run gen-sidebar -- --strict",
+    "build": "vitepress build .",
+    "prepreview": "npm run gen-sidebar",
+    "preview": "vitepress preview .",
+    "typecheck": "vue-tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run gen-sidebar -- --strict && npm run format:check && npm run --ignore-scripts test && npm run --ignore-scripts typecheck && npm run --ignore-scripts build",
+    "pretypecheck": "npm run gen-sidebar",
+    "translation:audit": "tsx scripts/audit-translations.ts"
+  },
+  "devDependencies": {
+    "@actions/expressions": "^0.3.61",
+    "@types/node": "^22.10.2",
+    "chokidar": "^4.0.3",
+    "gray-matter": "^4.0.3",
+    "mermaid": "^11.17.2",
+    "prettier": "^3.10.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitepress": "^1.6.4",
+    "vitepress-plugin-mermaid": "^2.0.17",
+    "vue": "^3.5.46",
+    "vue-tsc": "^2.2.12"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

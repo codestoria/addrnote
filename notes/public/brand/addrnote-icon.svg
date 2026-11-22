@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Addrnote icon</title>
+  <desc id="desc">A note containing connected address nodes</desc>
+  <defs>
+    <linearGradient id="surface" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#172554"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="signal" x1="20" y1="18" x2="46" y2="47" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#surface)"/>
+  <path d="M19 15.5h19.5L47 24v24.5H19z" fill="#0b1220" stroke="url(#signal)" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M38.5 15.5V24H47" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M25 33h9m4 0h3M28 33v9h10" fill="none" stroke="url(#signal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="25" cy="33" r="2.5" fill="#93c5fd"/>
+  <circle cx="38" cy="33" r="2.5" fill="#67e8f9"/>
+  <circle cx="28" cy="42" r="2.5" fill="#60a5fa"/>
+  <circle cx="41" cy="42" r="2.5" fill="#22d3ee"/>
+</svg>

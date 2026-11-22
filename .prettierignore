@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+.worktrees/
+
+# VitePress cache and build outputs
+.vitepress/generated/
+.vitepress/cache/
+.vitepress/dist/
+dist/
+
+# Documentation content maintained without automatic formatting
+notes/
+docs/
+content/MAINTENANCE.md
+
+# Local override configs
+*.local
+
+# System junk files
+.DS_Store
+Thumbs.db
+
+# Unused directory
+notes/superpowers/
+resources/
+drafts/
+
+# Preserve YAML configuration exactly
+*.yaml
+*.yml

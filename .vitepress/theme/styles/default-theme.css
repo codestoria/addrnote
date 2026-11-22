@@ -1,0 +1,328 @@
+/* ==========================================================================
+ * 2. VitePress Theme Adapters
+ * ========================================================================== */
+.VPHome {
+  --atm-bg-size-active: var(--atm-bg-size-desktop);
+  background-image:
+    radial-gradient(
+      ellipse 80% 50% at 50% -8%,
+      rgba(var(--atm-accent-rgb), var(--atm-glow-top-alpha)),
+      transparent 70%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(var(--atm-veil-rgb), var(--atm-veil-start-alpha)) 0%,
+      rgba(var(--atm-veil-rgb), var(--atm-veil-mid-alpha)) var(--atm-veil-mid-stop),
+      var(--vp-c-bg) var(--atm-veil-end-stop)
+    ),
+    var(--atm-bg-image);
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: var(--atm-bg-size-active);
+}
+
+/* Hero visual: stationary glow intensification without position shift */
+.VPHome .VPHero .image-bg {
+  background-image: linear-gradient(135deg, var(--atm-hero-glow-from), var(--atm-hero-glow-to));
+  filter: blur(var(--atm-hero-glow-blur));
+  opacity: var(--atm-hero-glow-opacity);
+  transition:
+    opacity var(--atm-duration-base) var(--atm-ease-out),
+    filter var(--atm-duration-base) var(--atm-ease-out);
+}
+
+.VPHome .VPHero .image-src {
+  filter: var(--atm-hero-shadow);
+  transition: filter var(--atm-duration-base) var(--atm-ease-out);
+}
+
+.VPHome .VPHero .image-container:hover .image-src,
+.VPHome .VPHero .image-src:hover {
+  filter: var(--atm-hero-shadow-hover);
+}
+
+.VPHome .VPHero .image-container:hover .image-bg {
+  opacity: var(--atm-hero-glow-opacity-hover);
+  filter: blur(calc(var(--atm-hero-glow-blur) * 1.12));
+}
+
+/* Addrnote icon & hero container: multi-directional fireworks, continuous glow, and click flash */
+.addrnote-icon,
+.VPHome .VPHero .image-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  cursor: pointer;
+  transition: filter var(--atm-duration-fast) var(--atm-ease-out);
+}
+
+.addrnote-icon::after,
+.VPHome .VPHero .image-container::after {
+  content: '';
+  position: absolute;
+  inset: -24px;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  background-image:
+    radial-gradient(circle, var(--atm-spark-primary) 2.5px, transparent 3px),
+    radial-gradient(circle, var(--atm-spark-secondary) 2.5px, transparent 3px),
+    radial-gradient(circle, var(--atm-spark-primary) 2px, transparent 2.5px),
+    radial-gradient(circle, var(--atm-spark-secondary) 2.5px, transparent 3px),
+    radial-gradient(circle, var(--atm-spark-highlight) 2px, transparent 2.5px),
+    radial-gradient(circle, var(--atm-spark-secondary) 2px, transparent 2.5px),
+    radial-gradient(circle, var(--atm-spark-primary) 2px, transparent 2.5px),
+    radial-gradient(circle, var(--atm-spark-highlight) 1.5px, transparent 2px),
+    radial-gradient(circle, var(--atm-spark-secondary) 2px, transparent 2.5px),
+    radial-gradient(circle, var(--atm-spark-primary) 1.5px, transparent 2px);
+  background-position:
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%,
+    50% 50%;
+  background-size: 10px 10px;
+  background-repeat: no-repeat;
+}
+
+.addrnote-icon:hover,
+.addrnote-icon:focus-visible,
+.VPHome .VPHero .image-container:hover {
+  animation: atm-icon-glow-pulse var(--atm-icon-glow-pulse-duration) var(--atm-ease-in-out) infinite;
+}
+
+.addrnote-icon:hover::after,
+.addrnote-icon:focus-visible::after,
+.VPHome .VPHero .image-container:hover::after {
+  animation: atm-icon-fireworks-loop var(--atm-icon-fireworks-duration) var(--atm-ease-out) infinite;
+}
+
+/* Click / active & script-replayed burst states: intense flash without moving */
+.addrnote-icon:active,
+.addrnote-icon.is-bursting,
+.VPHome .VPHero .image-container:active,
+.VPHome .VPHero .image-container.is-bursting {
+  animation: atm-icon-click-flash var(--atm-icon-click-flash-duration) var(--atm-ease-out) forwards;
+}
+
+.addrnote-icon:active::after,
+.addrnote-icon.is-bursting::after,
+.VPHome .VPHero .image-container:active::after,
+.VPHome .VPHero .image-container.is-bursting::after {
+  animation: atm-icon-fireworks-burst-strong var(--atm-icon-click-flash-duration)
+    var(--atm-ease-out) forwards;
+}
+
+@keyframes atm-icon-glow-pulse {
+  0%,
+  100% {
+    filter: var(--atm-icon-glow-min);
+  }
+  50% {
+    filter: var(--atm-icon-glow-max);
+  }
+}
+
+@keyframes atm-icon-click-flash {
+  0% {
+    filter: var(--atm-icon-glow-click);
+  }
+  65% {
+    filter: var(--atm-icon-glow-max);
+  }
+  100% {
+    filter: var(--atm-icon-glow-min);
+  }
+}
+
+@keyframes atm-icon-fireworks-loop {
+  0% {
+    opacity: 0;
+    background-position:
+      50% 50%,
+      50% 50%,
+      50% 50%,
+      50% 50%,
+      50% 50%,
+      50% 50%,
+      50% 50%,
+      50% 50%,
+      50% 50%,
+      50% 50%;
+  }
+  20% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.72;
+  }
+  100% {
+    opacity: 0;
+    background-position:
+      12% 14%,
+      88% 16%,
+      8% 78%,
+      90% 82%,
+      50% 4%,
+      50% 96%,
+      4% 50%,
+      96% 50%,
+      28% 86%,
+      74% 8%;
+  }
+}
+
+@keyframes atm-icon-fireworks-burst-strong {
+  0% {
+    opacity: 1;
+    background-position:
+      50% 50%,
+      50% 50%,
+      50% 50%,
+      50% 50%,
+      50% 50%,
+      50% 50%,
+      50% 50%,
+      50% 50%,
+      50% 50%,
+      50% 50%;
+  }
+  55% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    background-position:
+      4% 6%,
+      96% 8%,
+      2% 88%,
+      97% 90%,
+      50% 0%,
+      50% 100%,
+      0% 50%,
+      100% 50%,
+      20% 96%,
+      82% 2%;
+  }
+}
+
+/* Feature card: stationary glow and radial spark burst on hover/focus */
+.VPHome .VPFeature {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--atm-card-bg);
+  backdrop-filter: blur(var(--atm-card-blur));
+  -webkit-backdrop-filter: blur(var(--atm-card-blur));
+  border: 1px solid var(--atm-card-border);
+  transition:
+    background-color var(--atm-duration-fast) var(--atm-ease-out),
+    border-color var(--atm-duration-fast) var(--atm-ease-out),
+    box-shadow var(--atm-duration-fast) var(--atm-ease-out);
+}
+
+.VPHome .VPFeature::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background-image:
+    radial-gradient(circle, var(--atm-spark-primary) 1.5px, transparent 2px),
+    radial-gradient(circle, var(--atm-spark-secondary) 2px, transparent 2.5px),
+    radial-gradient(circle, var(--atm-spark-primary) 1px, transparent 1.5px),
+    radial-gradient(circle, var(--atm-spark-secondary) 1.5px, transparent 2px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.9) 1.5px, transparent 2px);
+  background-position:
+    50% 45%,
+    50% 45%,
+    50% 45%,
+    50% 45%,
+    50% 45%;
+  background-size: 6px 6px;
+  background-repeat: no-repeat;
+}
+
+.VPHome .VPFeature:hover,
+.VPHome .VPFeature:focus-within {
+  background-color: var(--atm-card-bg-hover);
+  border-color: var(--atm-card-border-hover);
+  box-shadow: var(--atm-card-shadow-hover);
+}
+
+.VPHome .VPFeature:hover::before,
+.VPHome .VPFeature:focus-within::before {
+  animation: atm-fireworks-burst var(--atm-spark-duration) var(--atm-ease-out) forwards;
+}
+
+@keyframes atm-fireworks-burst {
+  0% {
+    opacity: 0.95;
+    background-position:
+      50% 45%,
+      50% 45%,
+      50% 45%,
+      50% 45%,
+      50% 45%;
+  }
+  45% {
+    opacity: 0.85;
+  }
+  100% {
+    opacity: 0;
+    background-position:
+      22% 18%,
+      78% 22%,
+      16% 72%,
+      82% 76%,
+      50% 12%;
+  }
+}
+
+/* ==========================================================================
+ * 3. Document Layout
+ * ========================================================================== */
+.addrnote-index-page .VPDoc > .container > .aside {
+  display: none;
+}
+
+/* ==========================================================================
+ * 4. Responsive & Accessibility
+ * ========================================================================== */
+@media (max-width: 640px) {
+  .VPHome {
+    --atm-bg-size-active: 100% 100%, 100% 100%, var(--atm-bg-size-mobile);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .VPHome .VPHero .image-bg,
+  .VPHome .VPHero .image-src,
+  .VPHome .VPFeature,
+  .VPHome .VPFeature::before,
+  .addrnote-icon,
+  .addrnote-icon::after,
+  .VPHome .VPHero .image-container,
+  .VPHome .VPHero .image-container::after {
+    transition: none;
+    animation: none;
+  }
+
+  .VPHome .VPFeature:hover::before,
+  .VPHome .VPFeature:focus-within::before,
+  .addrnote-icon:hover::after,
+  .addrnote-icon:focus-visible::after,
+  .addrnote-icon:active::after,
+  .addrnote-icon.is-bursting::after,
+  .VPHome .VPHero .image-container:hover::after,
+  .VPHome .VPHero .image-container:active::after,
+  .VPHome .VPHero .image-container.is-bursting::after {
+    opacity: 0;
+  }
+}

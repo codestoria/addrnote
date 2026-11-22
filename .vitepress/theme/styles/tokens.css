@@ -1,0 +1,97 @@
+/* ==========================================================================
+ * 1. Design Tokens
+ * ========================================================================== */
+:root {
+  --atm-accent-rgb: 37, 99, 235;
+  --atm-accent-alt-rgb: 14, 165, 233;
+  --atm-ink-shadow-rgb: 15, 23, 42;
+  --atm-veil-rgb: 255, 255, 255;
+
+  --atm-bg-image: url('/brand/addrnote-background.svg');
+  --atm-glow-top-alpha: 0.16;
+  --atm-veil-start-alpha: 0.14;
+  --atm-veil-mid-alpha: 0.62;
+  --atm-veil-mid-stop: 52%;
+  --atm-veil-end-stop: 88%;
+  --atm-bg-size-desktop: cover;
+  --atm-bg-size-mobile: auto 680px;
+
+  --atm-hero-glow-from: rgba(var(--atm-accent-rgb), 0.34);
+  --atm-hero-glow-to: rgba(var(--atm-accent-alt-rgb), 0.28);
+  --atm-hero-glow-blur: 56px;
+  --atm-hero-glow-opacity: 0.85;
+  --atm-hero-glow-opacity-hover: 1;
+  --atm-hero-shadow: drop-shadow(0 18px 34px rgba(var(--atm-accent-rgb), 0.28))
+    drop-shadow(0 6px 14px rgba(var(--atm-ink-shadow-rgb), 0.12));
+  --atm-hero-shadow-hover: drop-shadow(0 20px 44px rgba(var(--atm-accent-rgb), 0.44))
+    drop-shadow(0 0 36px rgba(var(--atm-accent-alt-rgb), 0.32));
+
+  --atm-card-bg: rgba(255, 255, 255, 0.74);
+  --atm-card-bg-hover: rgba(255, 255, 255, 0.92);
+  --atm-card-blur: 12px;
+  --atm-card-border: rgba(var(--atm-accent-rgb), 0.14);
+  --atm-card-border-hover: rgba(var(--atm-accent-rgb), 0.42);
+  --atm-card-shadow-hover:
+    0 0 24px rgba(var(--atm-accent-rgb), 0.16), 0 0 12px rgba(var(--atm-accent-alt-rgb), 0.12);
+
+  --atm-spark-primary: rgba(var(--atm-accent-rgb), 0.88);
+  --atm-spark-secondary: rgba(var(--atm-accent-alt-rgb), 0.92);
+  --atm-spark-highlight: rgba(255, 255, 255, 0.98);
+  --atm-spark-duration: 0.75s;
+
+  --atm-icon-glow-min: drop-shadow(0 0 16px rgba(var(--atm-accent-rgb), 0.55))
+    drop-shadow(0 0 32px rgba(var(--atm-accent-alt-rgb), 0.35));
+  --atm-icon-glow-max: drop-shadow(0 0 26px rgba(var(--atm-accent-rgb), 0.85))
+    drop-shadow(0 0 48px rgba(var(--atm-accent-alt-rgb), 0.55));
+  --atm-icon-glow-click: drop-shadow(0 0 38px rgba(var(--atm-accent-rgb), 1))
+    drop-shadow(0 0 68px rgba(var(--atm-accent-alt-rgb), 0.82))
+    drop-shadow(0 0 20px rgba(255, 255, 255, 0.9));
+  --atm-icon-glow-pulse-duration: 1.6s;
+  --atm-icon-fireworks-duration: 1.15s;
+  --atm-icon-click-flash-duration: 0.42s;
+
+  --atm-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --atm-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --atm-duration-fast: 0.22s;
+  --atm-duration-base: 0.35s;
+}
+
+.dark {
+  --atm-accent-rgb: 59, 130, 246;
+  --atm-accent-alt-rgb: 56, 189, 248;
+  --atm-veil-rgb: 15, 23, 42;
+
+  --atm-glow-top-alpha: 0.28;
+  --atm-veil-start-alpha: 0.14;
+  --atm-veil-mid-alpha: 0.56;
+  --atm-veil-mid-stop: 55%;
+  --atm-veil-end-stop: 88%;
+
+  --atm-hero-glow-from: rgba(var(--atm-accent-rgb), 0.46);
+  --atm-hero-glow-to: rgba(var(--atm-accent-alt-rgb), 0.36);
+  --atm-hero-glow-blur: 64px;
+  --atm-hero-glow-opacity: 0.92;
+  --atm-hero-glow-opacity-hover: 1;
+  --atm-hero-shadow: drop-shadow(0 20px 44px rgba(var(--atm-accent-rgb), 0.42))
+    drop-shadow(0 0 24px rgba(var(--atm-accent-alt-rgb), 0.22));
+  --atm-hero-shadow-hover: drop-shadow(0 22px 52px rgba(var(--atm-accent-rgb), 0.58))
+    drop-shadow(0 0 42px rgba(var(--atm-accent-alt-rgb), 0.38));
+
+  --atm-card-bg: rgba(30, 41, 59, 0.56);
+  --atm-card-bg-hover: rgba(30, 41, 59, 0.76);
+  --atm-card-border: rgba(var(--atm-accent-alt-rgb), 0.18);
+  --atm-card-border-hover: rgba(var(--atm-accent-alt-rgb), 0.48);
+  --atm-card-shadow-hover:
+    0 0 28px rgba(var(--atm-accent-rgb), 0.28), 0 0 16px rgba(var(--atm-accent-alt-rgb), 0.2);
+
+  --atm-spark-primary: rgba(var(--atm-accent-rgb), 0.96);
+  --atm-spark-secondary: rgba(var(--atm-accent-alt-rgb), 0.98);
+
+  --atm-icon-glow-min: drop-shadow(0 0 20px rgba(var(--atm-accent-rgb), 0.68))
+    drop-shadow(0 0 38px rgba(var(--atm-accent-alt-rgb), 0.42));
+  --atm-icon-glow-max: drop-shadow(0 0 32px rgba(var(--atm-accent-rgb), 0.92))
+    drop-shadow(0 0 56px rgba(var(--atm-accent-alt-rgb), 0.62));
+  --atm-icon-glow-click: drop-shadow(0 0 44px rgba(var(--atm-accent-rgb), 1))
+    drop-shadow(0 0 76px rgba(var(--atm-accent-alt-rgb), 0.9))
+    drop-shadow(0 0 24px rgba(255, 255, 255, 0.95));
+}

@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# VitePress temp files, cache and build outputs
+.vitepress/.temp/
+.vitepress/generated/
+.vitepress/cache/
+.vitepress/dist/
+dist/
+
+# Local override configs
+*.local
+.worktrees/
+
+# System junk files
+.DS_Store
+Thumbs.db
+
+# Unused directory
+notes/superpowers/
+.superpowers/
+.sdd/
+
+resources/
+drafts/
