@@ -63,19 +63,28 @@ Type and value category are **independent**: `int` can be an lvalue, a prvalue, 
 The two axes give four combinations; C++ uses only three of them as primary categories:
 
 ```mermaid
-flowchart TB
-    A["All expressions"] --> GL["glvalue<br/>(has identity)"]
-    A --> PR["prvalue<br/>(movable, NO identity<br/>— pure value)"]
+flowchart LR
+    C1["✅ Identity<br/>❌ Not movable"] --> L["lvalue"]
+    C2["✅ Identity<br/>✅ Movable"] --> X["xvalue"]
+    C3["❌ No identity<br/>✅ Movable"] --> P["prvalue"]
+    C4["❌ No identity<br/>❌ Not movable"] -.-> N["No C++ expression"]
 
-    GL --> L["lvalue<br/>(identity, NOT movable)"]
-    GL --> X["xvalue<br/>(identity AND movable)"]
-
-    %% Set illustration: rvalue = prvalue + xvalue.
-    %% This subgraph is a conceptual grouping only, not flow logic.
-    subgraph rvalue
-        PR
+    %% umbrella grouping
+    subgraph glvalue ["glvalue"]
+        L
         X
     end
+    subgraph rvalue ["rvalue"]
+        X
+        P
+    end
+
+    classDef gl fill:#e8f4fd
+    classDef rv fill:#fff2dd
+    classDef none stroke:#aaa,stroke-dasharray:4 4,color:#777
+    class L,X gl
+    class X,P rv
+    class N none
 ```
 
 In words:
