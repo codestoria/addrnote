@@ -78,9 +78,9 @@ A **pointer** is a separate variable that holds an **address** (which you can ch
 | **What it is in C++** | A standalone object holding a memory address (or `nullptr`) | An entity that acts as an alias for an existing object |
 | **Must initialize on creation?** | No (but uninitialized pointers hold garbage addresses — dangerous!) | Yes (must bind to a valid object or function when defined) |
 | **Can rebind to another object?** | Yes (`ptr = &other;`) | No (`ref = other;` assigns to the *referenced object*, not rebinding `ref`) |
-| **Can be null (`nullptr`)?** | Yes | No (in well-defined C++, a reference always refers to a valid target) |
-| **Has its own address (`&`)?** | Yes (`&ptr` is the address of the pointer variable itself) | No (`&ref` yields the address of the *referenced object*) |
-| **Access / member syntax** | `*ptr` to dereference; `ptr->member` for members | `ref` directly; `ref.member` for members |
+| Can be null (`nullptr`)? | Yes | No (in well-defined C++, a reference always refers to a valid target) |
+| Independent storage address? | Yes (`&ptr` yields the pointer object's own address) | No (`&ref` yields the address of the *referenced object*) |
+| Access / member syntax | `*ptr` to dereference; `ptr->member` for members | `ref` directly; `ref.member` for members |
 
 ### Why "a reference is not an independent object"
 
