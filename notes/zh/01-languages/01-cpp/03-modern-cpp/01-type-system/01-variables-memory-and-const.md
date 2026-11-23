@@ -63,7 +63,7 @@ three distinct concepts come into play:
    - **Size:** How many bytes that storage occupies (for example, `sizeof(int)` is commonly `4` bytes on desktop platforms).
    - **Alignment:** A rule stating that the object's address must be a multiple of a certain byte boundary (for example, a 4-byte `int` often prefers or requires an address divisible by `4`) so hardware can read and write it efficiently.
 
-Think of a type as the **blueprint/rulebook** and the memory space as the **physical storage** where bytes live. Later on, you will also see how **storage duration** (when raw bytes are allocated and reclaimed) differs from **object lifetime** (when a valid, initialized object actually exists in those bytes) — for now, we focus on how names, types, and `const` govern reading and writing.
+Think of a type as the **blueprint/rulebook** and the memory space as the **physical storage** where bytes live. In later chapters, you will also see how **storage duration** (when raw bytes are allocated and reclaimed) differs from **object lifetime** (when a valid, initialized object actually exists in those bytes) — for now, we focus on how names, types, and `const` govern reading and writing.
 
 ### The intuition, in one sentence
 
@@ -371,7 +371,6 @@ int main() {
 ### Solutions
 
 ::: details Exercise 1 — compilation and explanation
-
 - **(1) Fails to compile:** `p1` points to `const int`, so `*p1` cannot be assigned to.
 - **(2) Compiles:** `p1` is not a `const` pointer; it can be reassigned to point to `b`.
 - **(3) Compiles:** `p2` is a `const` pointer to a non-`const` `int`, so modifying `*p2` is allowed.
@@ -379,7 +378,6 @@ int main() {
 :::
 
 ::: details Exercise 2 — output of the snippet
-
 Output:
 
 ```text
@@ -390,7 +388,6 @@ Even though `ptr` points to `const int`, `value` itself was defined as a non-`co
 :::
 
 ::: details Exercise 3 — matching declarations
-
 - **(a)** `const int* p` (low-level `const` only)
 - **(b)** `const int* const p` (both low-level and top-level `const`)
 - **(c)** `int* const p` (top-level `const` only)
