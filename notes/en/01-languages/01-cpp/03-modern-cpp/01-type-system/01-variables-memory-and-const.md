@@ -145,7 +145,7 @@ A classic reading rule helps: **read a type declaration from right to left**, st
 
 ### How C++ models storage, types, and `const`
 
-1. **Storage duration & layout:** An object occupies contiguous bytes of storage with a determined size (`sizeof(T)`) and alignment requirement (`alignof(T)`). You can obtain the address of most objects with the address-of operator `&`, whereas non-addressable constructs and expressions—such as bit-fields (which are objects in C++, but do not have an address) and temporary/rvalue expressions—cannot have their address taken with `&`.
+1. **Storage duration & layout:** An object occupies contiguous bytes of storage with a determined size (`sizeof(T)`) and alignment requirement (`alignof(T)`). You can obtain the address of most objects with the address-of operator `&`, whereas non-addressable constructs and expressions — such as bit-fields (which are objects in C++, but do not have an address) and temporary/rvalue expressions — cannot have their address taken with `&`.
 2. **Type qualifiers:** `const` is a type qualifier. Adding `const` to a type produces a `const`-qualified version of that type, restricting operations that mutate values through that qualified type.
 3. **Pointer declarator rules:** In a pointer declarator, `const` before `*` modifies the pointee type (low-level relative to the pointer), whereas `const` after `*` modifies the pointer itself (top-level on that pointer).
 4. **Implicit conversion to `const`:** In C++, you can implicitly convert a non-`const` pointer to a pointer to `const` (for example, `int*` to `const int*`), adding `const` protection. The reverse — implicitly converting `const int*` to `int*` — is forbidden because it would silently drop `const` protection.
